@@ -1,8 +1,8 @@
 {
-    "repositories" : [
+    "repositories": [
         {
-            "type" : "vcs",
-            "url" : "https://github.com/pagarme/git-hooks.git"
+            "type": "vcs",
+            "url": "https://github.com/pagarme/git-hooks.git"
         }
     ],
     "name": "pagarme/pagarme-php",
@@ -19,8 +19,8 @@
     "homepage": "http://pagar.me",
     "license": "MIT",
     "require": {
-        "php": ">=5.4.0",
-        "guzzlehttp/guzzle": "^5.3"
+        "php": ">=5.5",
+        "guzzlehttp/guzzle": "^6.2"
     },
     "require-dev": {
         "ext-mbstring": "*",
@@ -39,8 +39,10 @@
             "vendor/bin/phpunit --coverage-html tests/_reports"
         ]
     },
-     "autoload": {
-        "psr-4": {"PagarMe\\Sdk\\": "lib/"}
+    "autoload": {
+        "psr-4": {
+            "PagarMe\\Sdk\\": "lib/"
+        }
     },
     "autoload-dev": {
         "psr-4": {
