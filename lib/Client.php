@@ -54,18 +54,17 @@ class Client
      */
     public function send(RequestInterface $apiRequest)
     {
-        $request = $this->client->createRequest(
-            $apiRequest->getMethod(),
-            $apiRequest->getPath(),
-            $this->buildBody($apiRequest)
-        );
-
         try {
-            $response = $this->client->send($request);
+            $response = $this->client->request(
+                $apiRequest->getMethod(),
+                $apiRequest->getPath(),
+                $this->buildBody($apiRequest)
+            );
+
             return json_decode($response->getBody()->getContents());
         } catch (\GuzzleHttp\Exception\ClientException $exception) {
             $response = $exception->getResponse()->getBody()->getContents();
-            $code = $exception->getResponse()->getStatusCode();
+            $code     = $exception->getResponse()->getStatusCode();
             throw new ClientException($response, $code);
         } catch (\GuzzleHttp\Exception\RequestException $exception) {
             throw new ClientException(
@@ -85,9 +84,9 @@ class Client
             'json' => array_merge(
                 $request->getPayload(),
                 [
-                    'api_key' => $this->apiKey
+                    'api_key' => $this->apiKey,
                 ]
-            )
+            ),
         ];
     }
 

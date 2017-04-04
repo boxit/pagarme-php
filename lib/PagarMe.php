@@ -2,26 +2,26 @@
 
 namespace PagarMe\Sdk;
 
-use GuzzleHttp\Client as GuzzleClient;
-use PagarMe\Sdk\Customer\CustomerHandler;
-use PagarMe\Sdk\Transaction\TransactionHandler;
 use PagarMe\Sdk\Card\CardHandler;
-use PagarMe\Sdk\Calculation\CalculationHandler;
-use PagarMe\Sdk\Recipient\RecipientHandler;
 use PagarMe\Sdk\Plan\PlanHandler;
-use PagarMe\Sdk\SplitRule\SplitRuleHandler;
-use PagarMe\Sdk\Transfer\TransferHandler;
+use PagarMe\Sdk\Search\SearchHandler;
+use GuzzleHttp\Client as GuzzleClient;
+use PagarMe\Sdk\Balance\BalanceHandler;
 use PagarMe\Sdk\Company\CompanyHandler;
-use PagarMe\Sdk\BankAccount\BankAccountHandler;
-use PagarMe\Sdk\Subscription\SubscriptionHandler;
-use PagarMe\Sdk\BulkAnticipation\BulkAnticipationHandler;
 use PagarMe\Sdk\Payable\PayableHandler;
 use PagarMe\Sdk\Zipcode\ZipcodeHandler;
-use PagarMe\Sdk\BalanceOperation\BalanceOperationHandler;
+use PagarMe\Sdk\Customer\CustomerHandler;
 use PagarMe\Sdk\Postback\PostbackHandler;
+use PagarMe\Sdk\Transfer\TransferHandler;
+use PagarMe\Sdk\Recipient\RecipientHandler;
+use PagarMe\Sdk\SplitRule\SplitRuleHandler;
+use PagarMe\Sdk\BankAccount\BankAccountHandler;
+use PagarMe\Sdk\Calculation\CalculationHandler;
+use PagarMe\Sdk\Transaction\TransactionHandler;
+use PagarMe\Sdk\Subscription\SubscriptionHandler;
+use PagarMe\Sdk\BalanceOperation\BalanceOperationHandler;
+use PagarMe\Sdk\BulkAnticipation\BulkAnticipationHandler;
 use PagarMe\Sdk\AntifraudAnalysis\AntifraudAnalysisHandler;
-use PagarMe\Sdk\Search\SearchHandler;
-use PagarMe\Sdk\Balance\BalanceHandler;
 
 class PagarMe
 {
@@ -134,7 +134,7 @@ class PagarMe
         $this->client = new Client(
             new GuzzleClient(
                 [
-                    'base_url' => 'https://api.pagar.me/1/'
+                    'base_uri' => 'https://api.pagar.me/1/',
                 ]
             ),
             $apiKey,
